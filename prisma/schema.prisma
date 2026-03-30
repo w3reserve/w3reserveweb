@@ -1,0 +1,56 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Order {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  message   String
+  createdAt DateTime @default(now())
+}
+
+model Brand {
+  id          String    @id @default(cuid())
+  name        String
+  origin      String
+  description String
+  products    Product[]
+  createdAt   DateTime  @default(now())
+}
+
+model Product {
+  id          String   @id @default(cuid())
+  name        String
+  details     String
+  imageUrl    String
+  price       Float    @default(0)
+  brandId     String
+  brand       Brand    @relation(fields: [brandId], references: [id])
+  createdAt   DateTime @default(now())
+}
+
+model ContactB2B {
+  id          String   @id @default(cuid())
+  company     String
+  contactName String
+  email       String
+  message     String
+  createdAt   DateTime @default(now())
+}
+
+model ExperienceReservation {
+  id          String   @id @default(cuid())
+  name        String
+  email       String
+  date        String
+  guests      Int
+  message     String?
+  createdAt   DateTime @default(now())
+}
+
