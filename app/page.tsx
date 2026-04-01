@@ -1,8 +1,15 @@
 import React from 'react';
 import Preloader from '@/components/Preloader';
 import BrandShowcase from '@/components/BrandShowcase';
+import { prisma } from '@/lib/prisma';
 
-export default function Home() {
+export const dynamic = 'force-static';
+
+export default async function Home() {
+  const brands = await prisma.brand.findMany({
+    include: { products: true }
+  });
+
   return (
     <main style={{ backgroundColor: '#fff', minHeight: '100vh' }}>
       <Preloader />
@@ -14,7 +21,7 @@ export default function Home() {
         </div>
       </section>
       
-      <BrandShowcase />
+      <BrandShowcase brands={brands} />
     </main>
   );
 }

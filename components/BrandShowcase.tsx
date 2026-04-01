@@ -1,8 +1,8 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 
-type Product = {
+export type Product = {
   id: string;
   name: string;
   details: string;
@@ -10,7 +10,7 @@ type Product = {
   price: number;
 };
 
-type Brand = {
+export type Brand = {
   id: string;
   name: string;
   origin: string;
@@ -18,26 +18,13 @@ type Brand = {
   products: Product[];
 };
 
-export default function BrandShowcase() {
-  const [brands, setBrands] = useState<Brand[]>([]);
-  const [loading, setLoading] = useState(true);
+export default function BrandShowcase({ brands }: { brands: Brand[] }) {
+  if (!brands || brands.length === 0) return (
+    <div style={styles.container}>
+      <h2 style={styles.sectionTitle}>Sin Productos</h2>
+    </div>
+  );
 
-  useEffect(() => {
-    fetch('/api/catalog')
-      .then(res => res.json())
-      .then(data => {
-        if (data.success) {
-          setBrands(data.brands);
-        }
-        setLoading(false);
-      })
-      .catch(err => {
-        console.error('Failed to fetch catalog', err);
-        setLoading(false);
-      });
-  }, []);
-
-  if (loading) return null;
   return (
     <section id="tienda" style={styles.container}>
       <div style={styles.brandList}>

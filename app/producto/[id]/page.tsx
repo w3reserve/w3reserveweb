@@ -8,6 +8,13 @@ import Preloader from '@/components/Preloader';
 // Generate static params if optimizing for build, but dynamically fetching is fine.
 // This is a Server Component.
 
+export async function generateStaticParams() {
+  const products = await prisma.product.findMany({ select: { id: true } });
+  return products.map((product) => ({
+    id: String(product.id),
+  }));
+}
+
 export default async function ProductPage({ params }: { params: { id: string } }) {
   const { id } = await params;
 
