@@ -58,49 +58,59 @@ a {
   .mobile-col { flex-direction: column !important; }
   .mobile-w-full { width: 100% !important; max-width: 100% !important; flex: 1 1 100% !important; }
   .mobile-h-auto { height: auto !important; min-height: auto !important; }
-  .mobile-padding { padding: 40px 20px 100px 20px !important; }
-  .mobile-gap { gap: 30px !important; }
+  .mobile-padding { padding: 30px 15px 100px 15px !important; }
+  .mobile-gap { gap: 20px !important; }
   .mobile-text-center { text-align: center !important; }
   .mobile-hide { display: none !important; }
   
   /* Specific Fixes */
   .mobile-hero { height: 40vh !important; }
-  .mobile-hero-title { font-size: 2.5rem !important; margin-bottom: 20px !important; }
-  .mobile-hero-subtitle { font-size: 0.8rem !important; letter-spacing: 0.3em !important; }
+  .mobile-hero-title { font-size: 2.2rem !important; margin-bottom: 20px !important; text-align: center !important; }
+  .mobile-hero-subtitle { font-size: 0.85rem !important; letter-spacing: 0.25em !important; text-align: center !important; }
   
-  /* Product Grid */
-  .mobile-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
-  .mobile-brand-title { font-size: 2.2rem !important; }
+  /* Product Grid: 2 items per row */
+  .mobile-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 15px !important; }
+  .mobile-brand-title { font-size: 2rem !important; text-align: center !important; }
+  .mobile-brand-origin { text-align: center !important; display: block !important; margin-bottom: 20px !important; }
+  .mobile-image-wrapper { height: 200px !important; padding: 10px !important; margin-bottom: 15px !important; }
+  .mobile-product-name-catalog { font-size: 1rem !important; }
+  .mobile-product-price-catalog { font-size: 0.85rem !important; }
   
   /* Product Details Page */
-  .mobile-product-container { padding: 20px !important; padding-top: 40px !important; padding-bottom: 100px !important; }
-  .mobile-product-img-col { height: auto !important; min-height: 300px !important; padding: 20px !important; }
-  .mobile-product-img { max-height: 300px !important; }
-  .mobile-product-title { font-size: 2.5rem !important; }
+  .mobile-product-container { padding: 15px !important; padding-top: 30px !important; padding-bottom: 100px !important; }
+  .mobile-product-img-col { height: auto !important; min-height: 250px !important; padding: 10px !important; display: flex !important; justify-content: center !important; }
+  .mobile-product-img { max-height: 250px !important; object-fit: contain !important; }
+  .mobile-product-title { font-size: 2.2rem !important; text-align: center !important; line-height: 1.2 !important; margin-bottom: 10px !important; }
+  .mobile-product-price-detail { text-align: center !important; font-size: 1.3rem !important; margin-bottom: 20px !important; }
+  .mobile-product-desc { text-align: center !important; font-size: 1rem !important; }
+  .mobile-metadata { text-align: left !important; }
   
   /* Sidebar Bottom Navigation */
   .mobile-sidebar {
     width: 100% !important;
-    height: 70px !important;
+    height: 75px !important;
     bottom: 0 !important;
     top: auto !important;
     flex-direction: row !important;
-    padding: 0 20px !important;
+    padding: 0 15px !important;
     border-right: none !important;
     border-top: 1px solid rgba(255,255,255,0.1) !important;
+    justify-content: space-between !important;
   }
   .mobile-sidebar-nav {
     flex-direction: row !important;
     margin-top: 0 !important;
-    gap: 20px !important;
+    gap: 15px !important;
+    flex: 1 !important;
+    justify-content: center !important;
   }
   .mobile-sidebar-nav-item {
     writing-mode: horizontal-tb !important;
     transform: none !important;
-    font-size: 0.70rem !important;
-    letter-spacing: 0.1em !important;
+    font-size: 0.85rem !important;
+    letter-spacing: 0.05em !important;
   }
-  .mobile-sidebar-logo { font-size: 1.2rem !important; }
+  .mobile-sidebar-logo { font-size: 1.5rem !important; }
   
   /* Shopping Cart Drawer */
   .mobile-drawer { width: 100% !important; max-width: 100% !important; }

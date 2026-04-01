@@ -44,17 +44,17 @@ export default async function ProductPage({ params }: { params: { id: string } }
 
         {/* Right Column: Details */}
         <div style={styles.detailsCol} className="mobile-w-full mobile-text-center">
-          <span style={styles.brandName}>{product.brand.name}</span>
+          <span style={styles.brandName} className="mobile-brand-origin">{product.brand.name}</span>
           <h1 style={styles.productName} className="mobile-product-title">{product.name}</h1>
-          <p style={styles.price}>{product.price.toFixed(2)} €</p>
+          <p style={styles.price} className="mobile-product-price-detail">{product.price.toFixed(2)} €</p>
           
           <div style={styles.divider}></div>
           
           <div style={styles.descriptionBlock}>
-            <p style={styles.descriptionText}>{product.details}</p>
+            <p style={styles.descriptionText} className="mobile-product-desc">{product.details}</p>
           </div>
 
-          <div style={styles.metadataBlock}>
+          <div style={styles.metadataBlock} className="mobile-metadata">
             <div style={styles.metaRow}>
               <span style={styles.metaLabel}>Origen:</span>
               <span style={styles.metaValue}>{product.brand.origin}</span>

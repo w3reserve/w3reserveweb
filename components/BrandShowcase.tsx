@@ -32,7 +32,7 @@ export default function BrandShowcase({ brands }: { brands: Brand[] }) {
           <div key={brand.id} style={styles.brandSection} className="mobile-gap">
             <div style={styles.brandHeader}>
               <h3 style={styles.brandName} className="mobile-brand-title">{brand.name}</h3>
-              <span style={styles.origin}>{brand.origin}</span>
+              <span style={styles.origin} className="mobile-brand-origin">{brand.origin}</span>
             </div>
             
             <div style={styles.productGrid} className="mobile-grid">
@@ -43,12 +43,12 @@ export default function BrandShowcase({ brands }: { brands: Brand[] }) {
                   style={styles.productLink}
                 >
                   <div style={styles.productCard}>
-                    <div style={styles.imageWrapper} className="mobile-product-img-col">
+                    <div style={styles.imageWrapper} className="mobile-image-wrapper">
                       <img src={product.imageUrl} alt={product.name} style={styles.productImage} className="mobile-product-img" />
                     </div>
                     <div style={styles.productInfo}>
-                       <h4 style={styles.productName}>{product.name}</h4>
-                       <span style={styles.productPrice}>{product.price.toFixed(2)} €</span>
+                       <h4 style={styles.productName} className="mobile-product-name-catalog">{product.name}</h4>
+                       <span style={styles.productPrice} className="mobile-product-price-catalog">{product.price.toFixed(2)} €</span>
                     </div>
                   </div>
                 </Link>
