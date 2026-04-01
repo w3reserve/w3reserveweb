@@ -3,9 +3,46 @@
 import React from 'react';
 import { useCart } from './CartContext';
 import Image from 'next/image';
+import { loadStripe } from '@stripe/stripe-js';
+
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || '');
 
 export default function ShoppingCart() {
   const { isCartOpen, setIsCartOpen, items, removeFromCart, updateQuantity, cartTotal } = useCart();
+
+  const [isCheckingOut, setIsCheckingOut] = React.useState(false);
+
+  const handleCheckout = async () => {
+    if (items.length === 0) return;
+    setIsCheckingOut(true);
+    try {
+      const response = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ items }),
+      });
+      const session = await response.json();
+      
+      if (session.error) {
+        alert('Error: ' + session.error);
+        setIsCheckingOut(false);
+        return;
+      }
+      
+      const stripe = await stripePromise;
+      if (stripe) {
+        const { error } = await stripe.redirectToCheckout({
+          sessionId: session.id,
+        });
+        if (error) alert(error.message);
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Hubo un problema procesando el pago.');
+    } finally {
+      setIsCheckingOut(false);
+    }
+  };
 
   if (!isCartOpen) return null;
 
@@ -55,7 +92,17 @@ export default function ShoppingCart() {
                 <span>{cartTotal.toFixed(2)} €</span>
               </div>
               <p style={styles.taxesInfo}>Impuestos incluidos. Los gastos de envío se calculan en la pantalla de pago.</p>
-              <button style={styles.checkoutBtn}>CONTINUAR AL PAGO</button>
+              <button 
+                style={{
+                  ...styles.checkoutBtn, 
+                  opacity: isCheckingOut ? 0.5 : 1,
+                  cursor: isCheckingOut ? 'not-allowed' : 'pointer'
+                }} 
+                onClick={handleCheckout}
+                disabled={isCheckingOut}
+              >
+                {isCheckingOut ? 'PROCESANDO...' : 'CONTINUAR AL PAGO'}
+              </button>
             </div>
           </div>
         )}
