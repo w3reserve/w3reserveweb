@@ -50,7 +50,7 @@ export default function ShoppingCart() {
     <>
       <div style={styles.backdrop} onClick={() => setIsCartOpen(false)} />
       
-      <div style={styles.drawer}>
+      <div style={styles.drawer} className="mobile-drawer">
         <div style={styles.header}>
           <h2 style={styles.title}>SU CARRITO</h2>
           <button style={styles.closeBtn} onClick={() => setIsCartOpen(false)}>&times;</button>
@@ -65,7 +65,7 @@ export default function ShoppingCart() {
           <div style={styles.cartContent}>
             <div style={styles.itemsList}>
               {items.map((item) => (
-                <div key={item.id} style={styles.cartItem}>
+                <div key={item.id} style={styles.cartItem} className="mobile-cart-item">
                   <div style={styles.itemImageContainer}>
                     <Image src={item.image} alt={item.name} layout="fill" objectFit="contain" />
                   </div>
@@ -78,7 +78,7 @@ export default function ShoppingCart() {
                       <button style={styles.qtyBtn} onClick={() => updateQuantity(item.id, item.quantity + 1)}>+</button>
                     </div>
                   </div>
-                  <div style={styles.itemPriceColumn}>
+                  <div style={styles.itemPriceColumn} className="mobile-item-price-col">
                     <p style={styles.itemPrice}>{item.price.toFixed(2)} €</p>
                     <button style={styles.removeBtn} onClick={() => removeFromCart(item.id)}>Eliminar</button>
                   </div>

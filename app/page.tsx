@@ -14,10 +14,10 @@ export default async function Home() {
     <main style={{ backgroundColor: '#fff', minHeight: '100vh' }}>
       <Preloader />
       {/* Hero that drops directly into the catalog */}
-      <section style={styles.hero}>
+      <section style={styles.hero} className="mobile-hero">
         <div style={styles.heroContent}>
-          <h1 style={styles.title}>NUESTRA COLECCIÓN<br/>LIMITADA</h1>
-          <p style={styles.subtitle}>SUMÉRGETE EN EL ORIGEN</p>
+          <h1 style={styles.title} className="mobile-hero-title">NUESTRA COLECCIÓN<br/>LIMITADA</h1>
+          <p style={styles.subtitle} className="mobile-hero-subtitle">SUMÉRGETE EN EL ORIGEN</p>
         </div>
       </section>
       

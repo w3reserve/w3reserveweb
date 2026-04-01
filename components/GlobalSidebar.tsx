@@ -13,22 +13,22 @@ export default function GlobalSidebar() {
 
   return (
     <>
-      <aside style={styles.sidebar}>
+      <aside style={styles.sidebar} className="mobile-sidebar">
         <div style={styles.topSection}>
-          <Link href="/" style={styles.logo}>W3</Link>
+          <Link href="/" style={styles.logo} className="mobile-sidebar-logo">W3</Link>
         </div>
 
-        <nav style={styles.nav}>
-          <Link href="/historia" style={{...styles.navItem, color: pathname === '/historia' ? '#fff' : 'rgba(255,255,255,0.4)'}}>
+        <nav style={styles.nav} className="mobile-sidebar-nav">
+          <Link href="/historia" style={{...styles.navItem, color: pathname === '/historia' ? '#fff' : 'rgba(255,255,255,0.4)'}} className="mobile-sidebar-nav-item">
             <span style={styles.navText}>Historia</span>
           </Link>
-          <a href="/#tienda" style={{...styles.navItem, color: pathname === '/' ? '#fff' : 'rgba(255,255,255,0.4)'}}>
+          <a href="/#tienda" style={{...styles.navItem, color: pathname === '/' ? '#fff' : 'rgba(255,255,255,0.4)'}} className="mobile-sidebar-nav-item">
             <span style={styles.navText}>Tienda</span>
           </a>
-          <Link href="/b2b" style={{...styles.navItem, color: pathname === '/b2b' ? '#fff' : 'rgba(255,255,255,0.4)'}}>
+          <Link href="/b2b" style={{...styles.navItem, color: pathname === '/b2b' ? '#fff' : 'rgba(255,255,255,0.4)'}} className="mobile-sidebar-nav-item">
             <span style={styles.navText}>B2B</span>
           </Link>
-          <Link href="/experiencias" style={{...styles.navItem, color: pathname === '/experiencias' ? '#fff' : 'rgba(255,255,255,0.4)'}}>
+          <Link href="/experiencias" style={{...styles.navItem, color: pathname === '/experiencias' ? '#fff' : 'rgba(255,255,255,0.4)'}} className="mobile-sidebar-nav-item">
             <span style={styles.navText}>Catas</span>
           </Link>
         </nav>

@@ -26,16 +26,16 @@ export default function BrandShowcase({ brands }: { brands: Brand[] }) {
   );
 
   return (
-    <section id="tienda" style={styles.container}>
-      <div style={styles.brandList}>
+    <section id="tienda" style={styles.container} className="mobile-padding">
+      <div style={styles.brandList} className="mobile-gap">
         {brands.map((brand) => (
-          <div key={brand.id} style={styles.brandSection}>
+          <div key={brand.id} style={styles.brandSection} className="mobile-gap">
             <div style={styles.brandHeader}>
-              <h3 style={styles.brandName}>{brand.name}</h3>
+              <h3 style={styles.brandName} className="mobile-brand-title">{brand.name}</h3>
               <span style={styles.origin}>{brand.origin}</span>
             </div>
             
-            <div style={styles.productGrid}>
+            <div style={styles.productGrid} className="mobile-grid">
               {brand.products.map(product => (
                 <Link 
                   href={`/producto/${product.id}`} 
@@ -43,8 +43,8 @@ export default function BrandShowcase({ brands }: { brands: Brand[] }) {
                   style={styles.productLink}
                 >
                   <div style={styles.productCard}>
-                    <div style={styles.imageWrapper}>
-                      <img src={product.imageUrl} alt={product.name} style={styles.productImage} />
+                    <div style={styles.imageWrapper} className="mobile-product-img-col">
+                      <img src={product.imageUrl} alt={product.name} style={styles.productImage} className="mobile-product-img" />
                     </div>
                     <div style={styles.productInfo}>
                        <h4 style={styles.productName}>{product.name}</h4>

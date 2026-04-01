@@ -28,23 +28,24 @@ export default async function ProductPage({ params }: { params: { id: string } }
   }
 
   return (
-    <main style={styles.main}>
+    <main style={styles.main} className="mobile-product-container">
       <Preloader />
       
       <div style={styles.container}>
         {/* Left Column: Huge Image */}
-        <div style={styles.imageCol}>
+        <div style={styles.imageCol} className="mobile-product-img-col mobile-w-full">
           <img 
             src={product.imageUrl} 
             alt={product.name} 
             style={styles.hugeImage}
+            className="mobile-product-img"
           />
         </div>
 
         {/* Right Column: Details */}
-        <div style={styles.detailsCol}>
+        <div style={styles.detailsCol} className="mobile-w-full mobile-text-center">
           <span style={styles.brandName}>{product.brand.name}</span>
-          <h1 style={styles.productName}>{product.name}</h1>
+          <h1 style={styles.productName} className="mobile-product-title">{product.name}</h1>
           <p style={styles.price}>{product.price.toFixed(2)} €</p>
           
           <div style={styles.divider}></div>
