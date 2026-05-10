@@ -38,8 +38,8 @@ export default function OverlayMenu() {
           <Link href="/historia" style={styles.link} onClick={() => setIsOpen(false)}>Historia</Link>
           <a href="/#tienda" style={styles.link} onClick={() => setIsOpen(false)}>Tienda (B2C)</a>
           <a href="#" style={styles.link} onClick={() => setIsOpen(false)}>Profesional (B2B)</a>
-          <a href="#" style={styles.link} onClick={() => setIsOpen(false)}>Experiencias y Catas</a>
-          <a href="#" style={styles.link} onClick={() => setIsOpen(false)}>Personalización</a>
+          <a href="/experiencias" style={styles.link} onClick={() => setIsOpen(false)}>Experiencias y Catas</a>
+          <Link href="/personalizacion" style={styles.link} onClick={() => setIsOpen(false)}>Personalización</Link>
         </nav>
       </div>
     </>

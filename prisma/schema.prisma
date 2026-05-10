@@ -54,3 +54,13 @@ model ExperienceReservation {
   createdAt   DateTime @default(now())
 }
 
+model PersonalizationRequest {
+  id          String   @id @default(cuid())
+  name        String
+  email       String
+  phone       String?
+  company     String?
+  details     String
+  createdAt   DateTime @default(now())
+}
+
