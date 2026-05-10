@@ -10,11 +10,15 @@ export default async function AdminDashboard() {
     orderBy: { createdAt: 'desc' }
   });
 
+  const personalizationRequests = await prisma.personalizationRequest.findMany({
+    orderBy: { createdAt: 'desc' }
+  });
+
   return (
     <main style={styles.main}>
       <header style={styles.header}>
         <h1 style={styles.title}>Panel de Administración</h1>
-        <p style={styles.subtitle}>Gestión de Leads (B2B) y Reservas de Catas (Experiencias).</p>
+        <p style={styles.subtitle}>Gestión de Leads (B2B), Reservas de Catas y Solicitudes de Personalización.</p>
       </header>
       
       <div style={styles.dashboard}>
@@ -71,6 +75,37 @@ export default async function AdminDashboard() {
                     <td style={styles.td}>{res.guests}</td>
                     <td style={styles.td}>{res.date}</td>
                     <td style={styles.td}>{new Date(res.createdAt).toLocaleDateString()}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
+        </section>
+
+        {/* Personalization Table */}
+        <section style={styles.section}>
+          <h2 style={styles.sectionTitle}>Solicitudes de Personalización</h2>
+          {personalizationRequests.length === 0 ? (
+            <p style={styles.empty}>No hay solicitudes de personalización todavía.</p>
+          ) : (
+            <table style={styles.table}>
+              <thead>
+                <tr>
+                  <th style={styles.th}>Nombre</th>
+                  <th style={styles.th}>Email / Teléfono</th>
+                  <th style={styles.th}>Empresa</th>
+                  <th style={styles.th}>Detalles de la Idea</th>
+                  <th style={styles.th}>Fecha</th>
+                </tr>
+              </thead>
+              <tbody>
+                {personalizationRequests.map(req => (
+                  <tr key={req.id} style={styles.tr}>
+                    <td style={styles.td}>{req.name}</td>
+                    <td style={styles.td}>{req.email}<br/><span style={{fontSize: '0.8em', color: '#666'}}>{req.phone || '-'}</span></td>
+                    <td style={styles.td}>{req.company || '-'}</td>
+                    <td style={styles.td}>{req.details}</td>
+                    <td style={styles.td}>{new Date(req.createdAt).toLocaleDateString()}</td>
                   </tr>
                 ))}
               </tbody>
