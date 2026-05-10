@@ -56,14 +56,14 @@ export default function PersonalizacionPage() {
         <div style={styles.gridContainer}>
           <div style={styles.galleryItem}>
             <div style={styles.imageWrapper}>
-              <img src="/custom_wine_bottle.png" alt="Botella Personalizada" style={styles.image} />
+              <img src="/personalizacion_1.jpg" alt="Botella Personalizada Kumbra" style={styles.image} />
             </div>
             <h3 style={styles.itemTitle}>Botellas Grabadas</h3>
             <p style={styles.itemDesc}>Diseños elegantes para aniversarios, bodas y eventos especiales.</p>
           </div>
           <div style={styles.galleryItem}>
             <div style={styles.imageWrapper}>
-              <img src="/custom_wine_box.png" alt="Packaging Personalizado" style={styles.image} />
+              <img src="/personalizacion_1.jpg" alt="Packaging Personalizado Kumbra" style={styles.image} />
             </div>
             <h3 style={styles.itemTitle}>Packaging Exclusivo</h3>
             <p style={styles.itemDesc}>Cajas de madera noble y estuches a medida para regalos corporativos.</p>
