@@ -5,7 +5,7 @@ export default function AgeModal() {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    const isVerified = localStorage.getItem('w3_age_verified');
+    const isVerified = sessionStorage.getItem('w3_age_verified');
     if (!isVerified) {
       setShow(true);
       document.body.style.overflow = 'hidden';
@@ -13,7 +13,7 @@ export default function AgeModal() {
   }, []);
 
   const handleAccept = () => {
-    localStorage.setItem('w3_age_verified', 'true');
+    sessionStorage.setItem('w3_age_verified', 'true');
     setShow(false);
     document.body.style.overflow = 'auto';
   };

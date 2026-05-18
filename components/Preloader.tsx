@@ -10,7 +10,7 @@ export default function Preloader() {
   useEffect(() => {
     // Only show the preloader after the age gate is dismissed
     const checkAgeGate = () => {
-      const isVerified = localStorage.getItem('w3_age_verified');
+      const isVerified = sessionStorage.getItem('w3_age_verified');
       if (isVerified) {
         setShow(true);
       }
