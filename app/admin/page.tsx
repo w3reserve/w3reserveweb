@@ -40,7 +40,7 @@ export default async function AdminDashboard() {
               <tbody>
                 {b2bLeads.map(lead => (
                   <tr key={lead.id} style={styles.tr}>
-                    <td style={styles.td}>{lead.companyName}</td>
+                    <td style={styles.td}>{lead.company}</td>
                     <td style={styles.td}>{lead.email}</td>
                     <td style={styles.td}>{lead.message}</td>
                     <td style={styles.td}>{new Date(lead.createdAt).toLocaleDateString()}</td>

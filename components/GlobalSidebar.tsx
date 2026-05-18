@@ -31,6 +31,9 @@ export default function GlobalSidebar() {
           <Link href="/experiencias" style={{...styles.navItem, color: pathname === '/experiencias' ? '#fff' : 'rgba(255,255,255,0.4)'}} className="mobile-sidebar-nav-item">
             <span style={styles.navText}>Catas</span>
           </Link>
+          <Link href="/personalizacion" style={{...styles.navItem, color: pathname === '/personalizacion' ? '#fff' : 'rgba(255,255,255,0.4)'}} className="mobile-sidebar-nav-item">
+            <span style={styles.navText}>Custom</span>
+          </Link>
         </nav>
 
         <div style={styles.bottomSection}>

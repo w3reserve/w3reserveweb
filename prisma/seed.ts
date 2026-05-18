@@ -14,17 +14,13 @@ async function main() {
   const scrapedData = fs.readFileSync(path.join(process.cwd(), 'scraped_products.json'), 'utf-8');
   const rawProducts = JSON.parse(scrapedData);
   
-  // Filtrar los inválidos y los no deseados
-  const excludedNames = [
-    'selecte', 'bombonetta', 'homenatge cal rei', 'pinot noir',
-    'val regal enoturisme', 'cabernet sauvignon', 'tarambana negre',
-    'tarambana rosat', 'tarambana blanc', 'pack cava exclusiu'
-  ];
-
+  // Filtrar los inválidos (Unknown o precio 0) y deduplicar por nombre
+  const seen = new Set();
   const validProducts = rawProducts.filter((p) => {
     if (p.name === 'Unknown' || p.price <= 0) return false;
     const lowerName = p.name.toLowerCase();
-    if (excludedNames.some(ex => lowerName.includes(ex))) return false;
+    if (seen.has(lowerName)) return false;
+    seen.add(lowerName);
     return true;
   }).map((p) => ({
       name: p.name,

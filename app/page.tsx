@@ -3,7 +3,7 @@ import Preloader from '@/components/Preloader';
 import BrandShowcase from '@/components/BrandShowcase';
 import { prisma } from '@/lib/prisma';
 
-export const dynamic = 'force-static';
+export const dynamic = 'force-dynamic';
 
 export default async function Home() {
   const brands = await prisma.brand.findMany({
