@@ -22,9 +22,9 @@ export default function GlobalSidebar() {
           <Link href="/historia" style={{...styles.navItem, color: pathname === '/historia' ? '#fff' : 'rgba(255,255,255,0.4)'}} className="mobile-sidebar-nav-item">
             <span style={styles.navText}>Historia</span>
           </Link>
-          <a href="/#tienda" style={{...styles.navItem, color: pathname === '/' ? '#fff' : 'rgba(255,255,255,0.4)'}} className="mobile-sidebar-nav-item">
+          <Link href="/tienda" style={{...styles.navItem, color: pathname === '/tienda' ? '#fff' : 'rgba(255,255,255,0.4)'}} className="mobile-sidebar-nav-item">
             <span style={styles.navText}>Tienda</span>
-          </a>
+          </Link>
           <Link href="/b2b" style={{...styles.navItem, color: pathname === '/b2b' ? '#fff' : 'rgba(255,255,255,0.4)'}} className="mobile-sidebar-nav-item">
             <span style={styles.navText}>B2B</span>
           </Link>
