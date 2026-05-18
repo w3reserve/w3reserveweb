@@ -52,20 +52,27 @@ export default function PersonalizacionPage() {
 
       {/* Gallery Section */}
       <section style={styles.gallerySection}>
-        <div style={styles.gridContainer}>
+        <div style={{...styles.gridContainer, gridTemplateColumns: 'repeat(3, 1fr)'}}>
           <div style={styles.galleryItem}>
             <div style={styles.imageWrapper}>
-              <img src="/custom_wine_bottle.png" alt="Botella Personalizada" style={styles.image} />
+              <img src="/kumbra_3.jpg" alt="Botella Personalizada Kumbra Yachts" style={styles.image} />
             </div>
-            <h3 style={styles.itemTitle}>Botellas Grabadas</h3>
-            <p style={styles.itemDesc}>Diseños elegantes para aniversarios, bodas y eventos especiales.</p>
+            <h3 style={styles.itemTitle}>Botellas con Marca</h3>
+            <p style={styles.itemDesc}>Tu logotipo grabado en una botella premium. Ideal para eventos corporativos y regalos de empresa.</p>
           </div>
           <div style={styles.galleryItem}>
             <div style={styles.imageWrapper}>
-              <img src="/custom_wine_box.png" alt="Packaging Personalizado" style={styles.image} />
+              <img src="/kumbra_1.jpg" alt="Gift Box Personalizado Kumbra Yachts" style={styles.image} />
             </div>
-            <h3 style={styles.itemTitle}>Packaging Exclusivo</h3>
-            <p style={styles.itemDesc}>Cajas de madera noble y estuches a medida para regalos corporativos.</p>
+            <h3 style={styles.itemTitle}>Gift Box Exclusivo</h3>
+            <p style={styles.itemDesc}>Set completo con botella y copas en estuche premium personalizado con tu imagen de marca.</p>
+          </div>
+          <div style={styles.galleryItem}>
+            <div style={styles.imageWrapper}>
+              <img src="/kumbra_2.jpg" alt="Experiencia Premium Kumbra Yachts" style={styles.image} />
+            </div>
+            <h3 style={styles.itemTitle}>Experiencia Premium</h3>
+            <p style={styles.itemDesc}>Presentaciones únicas para momentos inolvidables. Cada detalle pensado para impresionar.</p>
           </div>
         </div>
       </section>
