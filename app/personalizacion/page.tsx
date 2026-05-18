@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import Preloader from '@/components/Preloader';
-import Footer from '@/components/Footer';
 
 export default function PersonalizacionPage() {
   const [formData, setFormData] = useState({
@@ -56,14 +55,14 @@ export default function PersonalizacionPage() {
         <div style={styles.gridContainer}>
           <div style={styles.galleryItem}>
             <div style={styles.imageWrapper}>
-              <img src="/personalizacion_1.jpg" alt="Botella Personalizada Kumbra" style={styles.image} />
+              <img src="/custom_wine_bottle.png" alt="Botella Personalizada" style={styles.image} />
             </div>
             <h3 style={styles.itemTitle}>Botellas Grabadas</h3>
             <p style={styles.itemDesc}>Diseños elegantes para aniversarios, bodas y eventos especiales.</p>
           </div>
           <div style={styles.galleryItem}>
             <div style={styles.imageWrapper}>
-              <img src="/personalizacion_1.jpg" alt="Packaging Personalizado Kumbra" style={styles.image} />
+              <img src="/custom_wine_box.png" alt="Packaging Personalizado" style={styles.image} />
             </div>
             <h3 style={styles.itemTitle}>Packaging Exclusivo</h3>
             <p style={styles.itemDesc}>Cajas de madera noble y estuches a medida para regalos corporativos.</p>
@@ -155,7 +154,7 @@ export default function PersonalizacionPage() {
         </div>
       </section>
 
-      <Footer />
+
     </main>
   );
 }
