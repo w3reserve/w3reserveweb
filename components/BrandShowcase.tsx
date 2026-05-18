@@ -19,6 +19,12 @@ export type Brand = {
 };
 
 export default function BrandShowcase({ brands }: { brands: Brand[] }) {
+  // Proxy external images through our API to bypass hotlink protection
+  const proxyUrl = (url: string) => {
+    if (url.startsWith('/')) return url; // local images
+    return `/api/img?url=${encodeURIComponent(url)}`;
+  };
+
   if (!brands || brands.length === 0) return (
     <div style={styles.container}>
       <h2 style={styles.sectionTitle}>Sin Productos</h2>
@@ -44,7 +50,7 @@ export default function BrandShowcase({ brands }: { brands: Brand[] }) {
                 >
                   <div style={styles.productCard}>
                     <div style={styles.imageWrapper} className="mobile-image-wrapper">
-                      <img src={product.imageUrl} alt={product.name} style={styles.productImage} className="mobile-product-img" />
+                      <img src={proxyUrl(product.imageUrl)} alt={product.name} style={styles.productImage} className="mobile-product-img" />
                     </div>
                     <div style={styles.productInfo}>
                        <h4 style={styles.productName} className="mobile-product-name-catalog">{product.name}</h4>

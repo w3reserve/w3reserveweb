@@ -27,6 +27,11 @@ export default async function ProductPage({ params }: { params: { id: string } }
     notFound();
   }
 
+  // Proxy external images through our API to bypass hotlink protection
+  const imageUrl = product.imageUrl.startsWith('/') 
+    ? product.imageUrl 
+    : `/api/img?url=${encodeURIComponent(product.imageUrl)}`;
+
   return (
     <main style={styles.main} className="mobile-product-container">
       <Preloader />
@@ -35,7 +40,7 @@ export default async function ProductPage({ params }: { params: { id: string } }
         {/* Left Column: Huge Image */}
         <div style={styles.imageCol} className="mobile-product-img-col mobile-w-full">
           <img 
-            src={product.imageUrl} 
+            src={imageUrl} 
             alt={product.name} 
             style={styles.hugeImage}
             className="mobile-product-img"
